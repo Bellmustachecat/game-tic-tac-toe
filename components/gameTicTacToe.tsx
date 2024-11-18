@@ -81,11 +81,15 @@ export default function TicTacToe({ userName }: TicTacToeProps) {
                 });
             } else if (result.winner === "O") {
                 setWinStreak(0);
+                setBonusMessage(null);
                 setScore((prev) => ({
                     ...prev,
                     player: prev.player > 0 ? prev.player - 1 : 0,
                     bot: prev.bot + 1,
                 }));
+            } else if (result.winner === "Tie") {
+                setWinStreak(0);
+                setBonusMessage(null);
             }
 
             setTimeout(resetGame, 2000);
