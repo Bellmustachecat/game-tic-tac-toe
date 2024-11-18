@@ -74,6 +74,7 @@ export default function TicTacToe({ userName }: TicTacToeProps) {
                     const bonus = winStreak === 2 ? 1 : 0;
                     if (bonus > 0) {
                         setBonusMessage("คุณชนะ 3 ครั้งติดได้ Double Bonus!");
+                        setWinStreak(0);
                         setTimeout(() => setBonusMessage(null), 3000);
                     }
                     return { ...prev, player: prev.player + 1 + bonus };
